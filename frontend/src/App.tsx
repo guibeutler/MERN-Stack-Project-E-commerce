@@ -1,9 +1,10 @@
 import React from 'react'
+import Routers from './Routers'
 
 function App() {
 	return (
 		<div>
-			<p>MERN PROJECT</p>
+			<Routers />
 		</div>
 	)
 }
