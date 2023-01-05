@@ -1,6 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 import ProtectedRoutes from './components/ProtectedRoutes'
+import RoutesWithChat from './components/RoutesWithChat'
 import AdminAnalytics from './screens/admin/AdminAnalytics'
 import AdminChats from './screens/admin/AdminChats'
 import AdminCreateProducts from './screens/admin/AdminCreateProducts'
@@ -24,19 +27,25 @@ import UserProfile from './screens/users/UserProfile'
 function Routers() {
 	return (
 		<BrowserRouter>
+			<Navbar />
 			<Routes>
-				<Route path={'/'} element={<Home />} />
-				<Route path={'/cart'} element={<Cart />} />
-				<Route path={'/login'} element={<Login />} />
-				<Route path={'/product-details/:id'} element={<ProductDetails />} />
-				<Route path={'/product-list'} element={<ProductList />} />
-				<Route path={'/register'} element={<Register />} />
+				<Route element={<RoutesWithChat />}>
+					<Route path={'/'} element={<Home />} />
+					<Route path={'/cart'} element={<Cart />} />
+					<Route path={'/login'} element={<Login />} />
+					<Route path={'/product-details/:id'} element={<ProductDetails />} />
+					<Route path={'/product-list'} element={<ProductList />} />
+					<Route path={'/register'} element={<Register />} />
 
-				<Route element={<ProtectedRoutes admin={false} />}>
-					<Route path={'/user/cart-details'} element={<UserCartDetails />} />
-					<Route path={'/user/order-details'} element={<UserOrderDetails />} />
-					<Route path={'/user/my-orders'} element={<UserOrders />} />
-					<Route path={'/user'} element={<UserProfile />} />
+					<Route element={<ProtectedRoutes admin={false} />}>
+						<Route path={'/user/cart-details'} element={<UserCartDetails />} />
+						<Route
+							path={'/user/order-details'}
+							element={<UserOrderDetails />}
+						/>
+						<Route path={'/user/my-orders'} element={<UserOrders />} />
+						<Route path={'/user'} element={<UserProfile />} />
+					</Route>
 				</Route>
 
 				<Route element={<ProtectedRoutes admin={true} />}>
@@ -60,6 +69,7 @@ function Routers() {
 					<Route path={'/admin/users'} element={<AdminUsers />} />
 				</Route>
 			</Routes>
+			<Footer />
 		</BrowserRouter>
 	)
 }
