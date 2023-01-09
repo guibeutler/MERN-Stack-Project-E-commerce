@@ -18,7 +18,7 @@ function NavBar() {
 				fontFamily: 'Cinzel',
 			}}
 		>
-			<h3 className="logo">Da MARGI</h3>
+			<h3 className="logo">Da Margi</h3>
 			{/* <Input
 				placeholder="Search"
 				style={{ width: 200 }}
@@ -27,7 +27,7 @@ function NavBar() {
 			<Col>
 				<Space>
 					<UserOutlined style={{ fontSize: '22px' }} />
-					<Badge count={5} size={'small'}>
+					<Badge count={5} size={'small'} color={'#0a5483'}>
 						<ShoppingOutlined style={{ fontSize: '22px', color: 'white' }} />
 					</Badge>
 				</Space>
