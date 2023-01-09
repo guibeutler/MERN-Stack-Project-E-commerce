@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Button, Col, Input, Space } from 'antd'
+import { Row, Button, Col, Input, Space, Badge } from 'antd'
 import {
 	SearchOutlined,
 	ShoppingOutlined,
@@ -10,7 +10,8 @@ function NavBar() {
 	return (
 		<Row
 			style={{
-				backgroundColor: 'grey',
+				backgroundColor: '#e19563',
+				color: 'white',
 				height: '50px',
 				alignItems: 'center',
 				justifyContent: 'space-around',
@@ -18,15 +19,17 @@ function NavBar() {
 			}}
 		>
 			<h3 className="logo">Da MARGI</h3>
-			<Input
+			{/* <Input
 				placeholder="Search"
 				style={{ width: 200 }}
 				prefix={<SearchOutlined />}
-			/>
+			/> */}
 			<Col>
 				<Space>
-					<Button shape="circle" icon={<UserOutlined />} />
-					<Button shape="circle" icon={<ShoppingOutlined />} />
+					<UserOutlined style={{ fontSize: '22px' }} />
+					<Badge count={5} size={'small'}>
+						<ShoppingOutlined style={{ fontSize: '22px', color: 'white' }} />
+					</Badge>
 				</Space>
 			</Col>
 		</Row>
