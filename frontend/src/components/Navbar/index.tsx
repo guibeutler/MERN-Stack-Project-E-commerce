@@ -19,11 +19,11 @@ function NavBar() {
 			}}
 		>
 			<h3 className="logo">Da Margi</h3>
-			{/* <Input
+			<Input
 				placeholder="Search"
 				style={{ width: 200 }}
 				prefix={<SearchOutlined />}
-			/> */}
+			/>
 			<Col>
 				<Space>
 					<UserOutlined style={{ fontSize: '22px' }} />
