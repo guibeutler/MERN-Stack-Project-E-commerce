@@ -1,38 +1,40 @@
 import React from 'react'
-import { Row, Button, Col, Input, Space, Badge } from 'antd'
-import {
-	SearchOutlined,
-	ShoppingOutlined,
-	UserOutlined,
-} from '@ant-design/icons'
+import { Row, Col, Input, Space, Badge } from 'antd'
+import { ShoppingOutlined, UserOutlined } from '@ant-design/icons'
+import './style.css'
+
+const { Search } = Input
 
 function NavBar() {
 	return (
-		<Row
-			style={{
-				backgroundColor: '#e19563',
-				color: 'white',
-				height: '50px',
-				alignItems: 'center',
-				justifyContent: 'space-around',
-				fontFamily: 'Cinzel',
-			}}
-		>
-			<h3 className="logo">Da Margi</h3>
-			<Input
-				placeholder="Search"
-				style={{ width: 200 }}
-				prefix={<SearchOutlined />}
-			/>
-			<Col>
-				<Space>
-					<UserOutlined style={{ fontSize: '22px' }} />
-					<Badge count={5} size={'small'} color={'#bcbfa3'}>
-						<ShoppingOutlined style={{ fontSize: '22px', color: 'white' }} />
-					</Badge>
-				</Space>
-			</Col>
-		</Row>
+		<div className="main-navbar">
+			<Row
+				style={{
+					backgroundColor: 'white',
+					borderBottom: '1px solid #e19563',
+					color: 'black',
+					height: '60px',
+					alignItems: 'center',
+					justifyContent: 'space-around',
+					fontFamily: 'Cinzel',
+				}}
+			>
+				<h2 className="logo">Da Margi</h2>
+				<Search
+					placeholder="Pesquisar produto"
+					allowClear
+					style={{ width: 200 }}
+				/>
+				<Col>
+					<Space>
+						<UserOutlined className="icon" style={{ fontSize: '22px' }} />
+						<Badge count={5} size={'small'}>
+							<ShoppingOutlined className="icon" style={{ fontSize: '22px' }} />
+						</Badge>
+					</Space>
+				</Col>
+			</Row>
+		</div>
 	)
 }
 

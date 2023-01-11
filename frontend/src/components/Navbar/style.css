@@ -1,0 +1,23 @@
+/* .main-navbar {
+	background-color: #e19563;
+	color: white;
+	height: 50px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-family: 'Cinzel';
+} */
+
+.icon:hover {
+	transform: scale(1.2);
+	cursor: pointer;
+}
+
+/* .logo {
+	font-weight: bolder;
+} */
+
+.logo:hover {
+	transform: scale(1.2);
+	cursor: pointer;
+}
