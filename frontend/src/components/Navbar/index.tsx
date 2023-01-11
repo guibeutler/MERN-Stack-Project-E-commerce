@@ -27,7 +27,7 @@ function NavBar() {
 			<Col>
 				<Space>
 					<UserOutlined style={{ fontSize: '22px' }} />
-					<Badge count={5} size={'small'} color={'#0a5483'}>
+					<Badge count={5} size={'small'} color={'#bcbfa3'}>
 						<ShoppingOutlined style={{ fontSize: '22px', color: 'white' }} />
 					</Badge>
 				</Space>
