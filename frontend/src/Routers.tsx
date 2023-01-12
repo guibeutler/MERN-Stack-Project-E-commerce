@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer'
+import Header from './components/Header'
 import Navbar from './components/Navbar'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import RoutesWithChat from './components/RoutesWithChat'
@@ -27,7 +28,8 @@ import UserProfile from './screens/users/UserProfile'
 function Routers() {
 	return (
 		<BrowserRouter>
-			<Navbar />
+			{/* <Navbar /> */}
+			<Header />
 			<Routes>
 				<Route element={<RoutesWithChat />}>
 					<Route path={'/'} element={<Home />} />

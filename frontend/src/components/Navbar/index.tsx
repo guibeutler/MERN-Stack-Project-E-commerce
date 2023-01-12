@@ -9,10 +9,14 @@ import {
 import './style.css'
 
 const { Search } = Input
+{
+	/* <MenuOutlined /> */
+}
 
 function NavBar() {
+	const [classOn, setClassOn] = useState(false)
+
 	const navigate = useNavigate()
-	const [collapsed, setCollapsed] = useState(true)
 
 	const handleNavigate = (key: string) => {
 		switch (key) {
@@ -35,7 +39,10 @@ function NavBar() {
 	}
 
 	return (
-		<div className="main-navbar">
+		<div
+			className={classOn ? 'menu-section on' : 'menu-section'}
+			onClick={() => setClassOn(!classOn)}
+		>
 			<Row
 				style={{
 					backgroundColor: 'white',
@@ -62,57 +69,46 @@ function NavBar() {
 
 				<Col>
 					<Space>
-						<Menu
-							theme="light"
-							mode="horizontal"
-							defaultSelectedKeys={['1']}
-							style={{ lineHeight: '64px' }}
-							collapsed={collapsed}
+						<Dropdown
+							trigger={['click']}
+							overlay={
+								<Menu onClick={({ key }) => handleNavigate(key)}>
+									<Menu.Item key="4">Login</Menu.Item>
+									<Menu.Item key="5">Cadastrar</Menu.Item>
+								</Menu>
+							}
 						>
-							<Dropdown
-								trigger={['click']}
-								overlay={
-									<Menu onClick={({ key }) => handleNavigate(key)}>
-										<Menu.Item key="4">Login</Menu.Item>
-										<Menu.Item key="5">Cadastrar</Menu.Item>
-									</Menu>
-								}
-							>
-								<p onClick={(e) => e.preventDefault()}>
-									<Space>
-										<Badge dot>
-											<UserOutlined
-												className="icon"
-												style={{ fontSize: '22px' }}
-											/>
-										</Badge>
-									</Space>
-								</p>
-							</Dropdown>
-							<Badge count={5} size={'small'}>
-								<ShoppingOutlined
-									className="icon"
-									style={{ fontSize: '22px' }}
-								/>
-							</Badge>
-							<Dropdown
-								trigger={['click']}
-								overlay={
-									<Menu onClick={({ key }) => handleNavigate(key)}>
-										<Menu.Item key="1">Meus pedidos</Menu.Item>
-										<Menu.Item key="2">Meu perfil</Menu.Item>
-										<Menu.Item key="3">Logout</Menu.Item>
-									</Menu>
-								}
-							>
-								<p onClick={(e) => e.preventDefault()}>
-									<Space>
-										Margi
-										<CaretDownOutlined />
-									</Space>
-								</p>
-							</Dropdown>
-						</Menu>
+							<p onClick={(e) => e.preventDefault()}>
+								<Space>
+									<Badge dot>
+										<UserOutlined
+											className="icon"
+											style={{ fontSize: '22px' }}
+										/>
+									</Badge>
+								</Space>
+							</p>
+						</Dropdown>
+						<Badge count={5} size={'small'}>
+							<ShoppingOutlined className="icon" style={{ fontSize: '22px' }} />
+						</Badge>
+						<Dropdown
+							trigger={['click']}
+							overlay={
+								<Menu onClick={({ key }) => handleNavigate(key)}>
+									<Menu.Item key="1">Meus pedidos</Menu.Item>
+									<Menu.Item key="2">Meu perfil</Menu.Item>
+									<Menu.Item key="3">Logout</Menu.Item>
+								</Menu>
+							}
+						>
+							<p onClick={(e) => e.preventDefault()}>
+								<Space>
+									Margi
+									<CaretDownOutlined />
+								</Space>
+							</p>
+						</Dropdown>
 					</Space>
 				</Col>
 			</Row>
