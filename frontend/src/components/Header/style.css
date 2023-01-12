@@ -7,6 +7,9 @@ header {
 	font-family: 'Cinzel';
 }
 
+header h2:hover {
+}
+
 header .container {
 	display: flex;
 	align-items: center;
@@ -32,14 +35,33 @@ header nav ul li a {
 	text-decoration: none;
 	color: black;
 	text-transform: uppercase;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 800;
 	padding: 1rem;
 	transition: all 250ms linear 0s;
 }
+.icon {
+	position: relative;
+	animation-name: menu;
+	animation-duration: 1s;
+	transition: 100ms;
+}
+.icon:hover {
+	transform: scale(1.5);
+}
+
+.badge {
+	position: relative;
+	animation-name: menu;
+	animation-duration: 1s;
+	transition: 100ms;
+}
+.badge:hover {
+	transform: scale(1.5);
+}
 
 header nav ul li a:hover {
-	font-size: 1.4rem;
+	font-size: 20px;
 }
 
 header nav ul li a {
@@ -83,29 +105,29 @@ header nav ul li a {
 	.two,
 	.three {
 		background-color: black;
-		height: 5px;
+		height: 2px;
 		width: 100%;
 		margin: 6px auto;
 		transition-duration: 0.3s;
 	}
 	.menu-toggle {
-		width: 40px;
+		width: 30px;
 		height: 30px;
 		margin-right: 20px;
 	}
 
 	/*Fullscreen*/
 	.menu-section.on {
-		position: absolute;
+		position: fixed;
 		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background: #7259c1;
-		z-index: 10; /*camada acima, evitar o scrool dos itens a baixo*/
+		right: 0;
+		width: 50%;
+		height: 80vh;
+		background: #e19563;
+		z-index: 10;
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		justify-content: left;
+		align-items: flex-end;
 	}
 
 	.menu-section.on nav {
@@ -114,13 +136,13 @@ header nav ul li a {
 
 	.menu-section.on .menu-toggle {
 		position: absolute;
-		right: 25px;
-		top: 25px;
+		right: 0px;
+		top: 10px;
 	}
 
 	.menu-section.on .menu-toggle .one {
-		transform: rotate(45deg) translate(7px, 7px);
-		background-color: black;
+		transform: rotate(45deg) translate(5px, 5px);
+		background-color: white;
 	}
 
 	.menu-section.on .menu-toggle .two {
@@ -128,8 +150,8 @@ header nav ul li a {
 	}
 
 	.menu-section.on .menu-toggle .three {
-		transform: rotate(-45deg) translate(8px, -9px);
-		background-color: black;
+		transform: rotate(-45deg) translate(5px, -9px);
+		background-color: white;
 	}
 
 	.menu-section.on nav ul {
@@ -139,15 +161,17 @@ header nav ul li a {
 
 	.menu-section.on nav ul a {
 		transition-duration: 0.5s;
-		font-size: 2rem;
+		font-size: 16px;
 		display: block;
-		color: black;
+		color: white;
 		padding: 1.8rem;
 	}
 
-	header nav ul li a .FiLogOut {
-		width: 40px;
+	.menu-section.on .icon {
+		color: white;
+		font-size: 50px;
 	}
+
 	.menu-section.on nav ul .hide {
 		display: flex;
 		align-items: center;
