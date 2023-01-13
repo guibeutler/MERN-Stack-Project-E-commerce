@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Badge, Row, Col, Typography, Space } from 'antd'
+import { Badge, Row, Col, Typography, Space, Input } from 'antd'
 import {
 	ShoppingOutlined,
 	UserOutlined,
@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons'
 import './style.css'
 const { Text } = Typography
+const { Search } = Input
 
 const Header = () => {
 	const [classOn, setClassOn] = useState(false)
@@ -30,11 +31,13 @@ const Header = () => {
 						<div className="two"></div>
 						<div className="three"></div>
 					</div>
-
 					<Row className="style-menu">
 						<Space>
 							<Col>
-								<Text onClick={() => navigate('/user')}>user</Text>
+								<UserOutlined />
+								<Badge dot>
+									<Text onClick={() => navigate('/user')}>user</Text>
+								</Badge>
 							</Col>
 							<Col>
 								<Text>login</Text>
@@ -64,51 +67,6 @@ const Header = () => {
 					</Row>
 				</div>
 			</Row>
-
-			{/* <div className="container">
-				<h2>Da Margi</h2>
-
-				<div
-					className={classOn ? 'menu-section on' : 'menu-section'}
-					onClick={() => setClassOn(!classOn)}
-				>
-					<div className="menu-toggle">
-						<div className="one"></div>
-						<div className="two"></div>
-						<div className="three"></div>
-					</div>
-
-					<nav>
-						<ul>
-							<li>
-								<a href="/user">user</a>
-							</li>
-							<li>
-								<a href="/">login</a>
-							</li>
-							<li>
-								<a href="/user/my-orders">meus pedidos</a>
-							</li>
-							<li>
-								<a href="/user">meu perfil</a>
-							</li>
-							<li>
-								<Badge className="badge" count={5} size={'small'}>
-									<ShoppingOutlined
-										className="icon"
-										style={{
-											fontSize: '18px',
-										}}
-									/>
-								</Badge>
-							</li>
-							<li>
-								<a href="/">logout</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div> */}
 		</header>
 	)
 }
