@@ -8,7 +8,15 @@ import {
 
 function Footer() {
 	return (
-		<footer>
+		<footer
+			style={{
+				position: 'sticky',
+				bottom: 0,
+				width: '100%',
+				zIndex: 10,
+				marginTop: '20px',
+			}}
+		>
 			<Row
 				style={{
 					display: 'flex',

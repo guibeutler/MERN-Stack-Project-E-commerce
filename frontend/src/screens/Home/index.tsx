@@ -1,10 +1,13 @@
 import React from 'react'
+import Carousel from '../../components/Carousel'
+import CategoryCard from '../../components/CategoryCard'
 
 function Home() {
 	return (
-		<div>
-			<p>HOME</p>
-		</div>
+		<>
+			<Carousel />
+			<CategoryCard />
+		</>
 	)
 }
 
