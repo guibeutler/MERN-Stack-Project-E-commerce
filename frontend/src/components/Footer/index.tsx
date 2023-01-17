@@ -5,29 +5,12 @@ import {
 	InstagramOutlined,
 	TwitterOutlined,
 } from '@ant-design/icons'
+import './style.css'
 
 function Footer() {
 	return (
-		<footer
-			style={{
-				position: 'sticky',
-				bottom: 0,
-				width: '100%',
-				zIndex: 10,
-				marginTop: '20px',
-			}}
-		>
-			<Row
-				style={{
-					display: 'flex',
-					flexDirection: 'column',
-					backgroundColor: '#e19563',
-					justifyContent: 'center',
-					alignContent: 'center',
-					height: '70px',
-					color: 'white',
-				}}
-			>
+		<footer>
+			<Row style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
 				<Row>
 					<Col>Copyright &copy; Da Margi</Col>
 				</Row>
