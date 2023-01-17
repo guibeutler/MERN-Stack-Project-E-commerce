@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Badge, Row, Col, Typography, Space, Input } from 'antd'
 import {
@@ -12,10 +12,22 @@ const { Search } = Input
 
 const Header = () => {
 	const [classOn, setClassOn] = useState(false)
+	const [scrolled, setScrolled] = useState(false)
 	const navigate = useNavigate()
 
+	useEffect(function () {
+		function positionScroll() {
+			if (window.scrollY > 10) {
+				setScrolled(true)
+			} else {
+				setScrolled(false)
+			}
+		}
+		window.addEventListener('scroll', positionScroll)
+	}, [])
+
 	return (
-		<header>
+		<header className={scrolled ? 'scrolled' : ''}>
 			<Row className="container">
 				<Row>
 					<Col>
