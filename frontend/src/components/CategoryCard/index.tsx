@@ -1,23 +1,33 @@
 import React from 'react'
-import { Button, Card } from 'antd'
+import { Button, Card, Row, Col } from 'antd'
 
 const { Meta } = Card
 
 function CategoryCard() {
 	return (
+		// <Card
+		// 	hoverable
+		// 	style={{ width: 150 }}
+		// 	cover={
+		// 		<img
+		// 			alt="example"
+		// 			src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+		// 		/>
+		// 	}
+		// >
+		// 	<Meta title="Europe Street beat" />
+		// 	<Meta description="sdsadadadasdasdasdsd" />
+		// 	<Button>Ver Mais!</Button>
+		// </Card>
+
 		<Card
-			hoverable
-			style={{ width: 240 }}
-			cover={
-				<img
-					alt="example"
-					src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-				/>
-			}
+			title="Default size card"
+			extra={<a href="/">More</a>}
+			style={{ width: 300, border: '1px solid #e19563' }}
 		>
-			<Meta title="Europe Street beat" />
-			<Meta description="sdsadadadasdasdasdsd" />
-			<Button>Ver Mais!</Button>
+			<p>Card content</p>
+			<p>Card content</p>
+			<p>Card content</p>
 		</Card>
 	)
 }
