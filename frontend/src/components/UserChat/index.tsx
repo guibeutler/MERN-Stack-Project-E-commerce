@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { CloseCircleOutlined, MessageOutlined } from '@ant-design/icons'
+import { Button } from 'antd'
 import './style.css'
 
 function UserChat() {
@@ -23,6 +24,24 @@ function UserChat() {
 					style={{ display: isChecked ? 'none' : 'block' }}
 				/>
 			</label>
+			<div className="chat-wrapper">
+				<div className="chat-header">
+					<h6>Envie uma menssagem!</h6>
+				</div>
+				<div className="chat-form">
+					<div className="cht-msg">
+						<p>Historico</p>
+					</div>
+				</div>
+				<textarea
+					id="clientChatMsg"
+					className="form-control"
+					placeholder="Escreva sua mensagem"
+				></textarea>
+				<div>
+					<Button className="btn btn-sucess btn block">Enviar</Button>
+				</div>
+			</div>
 		</div>
 	)
 }
