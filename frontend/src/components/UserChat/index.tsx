@@ -30,7 +30,7 @@ function UserChat() {
 				</div>
 				<div className="chat-form">
 					<div className="cht-msg">
-						<p>Historico</p>
+						<p>Histórico</p>
 					</div>
 				</div>
 				<textarea

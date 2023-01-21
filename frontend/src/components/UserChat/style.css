@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .chat-btn {
 	position: fixed;
 	right: 14px;
@@ -40,6 +42,8 @@
 }
 
 .chat-header {
+	display: flex;
+	align-items: center;
 	background-color: #e19563;
 	padding: 13px;
 	margin-bottom: 10px;
@@ -47,6 +51,7 @@
 	color: #fff;
 	font-size: 18px;
 	font-family: 'Cinzel';
+	height: 50px;
 }
 
 #check:checked ~ .chat-wrapper {
@@ -54,6 +59,7 @@
 }
 
 .chat-form {
+	font-family: 'Roboto';
 	padding: 15px;
 }
 
