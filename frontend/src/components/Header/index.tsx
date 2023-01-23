@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Badge, Row, Col, Typography, Space, Input } from 'antd'
-import {
-	ShoppingOutlined,
-	UserOutlined,
-	CaretDownOutlined,
-} from '@ant-design/icons'
+import { Badge, Row, Col, Typography, Space } from 'antd'
+import { ShoppingOutlined, UserOutlined } from '@ant-design/icons'
 import './style.css'
 const { Text } = Typography
-const { Search } = Input
 
 const Header = () => {
 	const [classOn, setClassOn] = useState(false)
