@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Badge, Row, Col, Typography, Space } from 'antd'
-import { ShoppingOutlined, UserOutlined } from '@ant-design/icons'
+import { BellOutlined, ShoppingOutlined, UserOutlined } from '@ant-design/icons'
 import './style.css'
 const { Text } = Typography
 
@@ -43,6 +43,7 @@ const Header = () => {
 							<Col>
 								<UserOutlined />
 								<Badge dot>
+									{/* <BellOutlined /> */}
 									<Text onClick={() => navigate('/user')}>user</Text>
 								</Badge>
 							</Col>
