@@ -29,8 +29,19 @@ function UserChat() {
 					<h6>Envie uma menssagem!</h6>
 				</div>
 				<div className="chat-form">
-					<div className="cht-msg">
-						<p>Histórico</p>
+					<div className="chat-msg">
+						{Array.from({ length: 10 }).map((_, id) => {
+							return (
+								<div>
+									<p>
+										<b>You:</b> Minha mensagem aqui!
+									</p>
+									<p>
+										<b>Suporte:</b> Mensagem do suporte aqui!
+									</p>
+								</div>
+							)
+						})}
 					</div>
 				</div>
 				<textarea

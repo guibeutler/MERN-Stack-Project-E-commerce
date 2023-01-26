@@ -70,3 +70,8 @@
 Button {
 	margin-bottom: 10px;
 }
+
+.chat-msg {
+	max-height: 300px;
+	overflow: auto;
+}
