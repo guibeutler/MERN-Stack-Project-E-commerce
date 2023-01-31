@@ -1,6 +1,10 @@
 import React from 'react'
 
 function RatingFilter() {
-	return <></>
+	return (
+		<>
+			<p>Rating Filter</p>
+		</>
+	)
 }
 export default RatingFilter

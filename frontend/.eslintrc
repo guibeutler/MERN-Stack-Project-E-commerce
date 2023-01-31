@@ -1,13 +1,6 @@
 {
-	"extends": [
-		"react-app"
-	],
-	"plugins": [
-		"react",
-		"react-hooks",
-		"@typescript-eslint",
-		"prettier"
-	],
+	"extends": ["react-app"],
+	"plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
 	"globals": {
 		"config": true
 	},
@@ -19,24 +12,10 @@
 		"jsx-a11y/anchor-is-valid": [
 			"error",
 			{
-				"components": [
-					"Link"
-				],
-				"specialLink": [
-					"hrefLeft",
-					"hrefRight"
-				],
-				"aspects": [
-					"noHref",
-					"invalidHref",
-					"preferButton"
-				]
+				"components": ["Link"],
+				"specialLink": ["hrefLeft", "hrefRight"],
+				"aspects": ["noHref", "invalidHref", "preferButton"]
 			}
 		]
-	},
-	"settings": {
-		"import/resolver": {
-			"typescript": {}
-		}
 	}
-}	
+}
