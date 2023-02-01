@@ -32,7 +32,7 @@ function UserChat() {
 					<div className="chat-msg">
 						{Array.from({ length: 10 }).map((_, id) => {
 							return (
-								<div>
+								<div key={id}>
 									<p>
 										<b>You:</b> Minha mensagem aqui!
 									</p>

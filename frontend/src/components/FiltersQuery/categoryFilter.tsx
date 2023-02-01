@@ -1,18 +1,22 @@
 import React from 'react'
 import { Checkbox, Col, Row } from 'antd'
-import type { CheckboxChangeEvent } from 'antd/es/checkbox'
+import { CheckboxValueType } from 'antd/es/checkbox/Group'
 
 function CategoryFilter() {
-	const onChange = (e: CheckboxChangeEvent) => {
-		console.log(e)
+	const options = [
+		{ label: 'Kits', value: 'kits' },
+		{ label: 'Geleias', value: 'geleias' },
+	]
+	const onChange = (chekedValues: CheckboxValueType[]) => {
+		console.log(chekedValues)
 	}
-	const plainOptions = ['Kits', 'Geleias']
 
 	return (
-		<Row>
+		<Row style={{ display: 'flex', flexDirection: 'column' }}>
 			<Col>
 				<span>Categorias</span>
-				<Checkbox.Group options={plainOptions} onChange={onChange} />
+				<br />
+				<Checkbox.Group options={options} onChange={onChange} />
 			</Col>
 		</Row>
 	)
