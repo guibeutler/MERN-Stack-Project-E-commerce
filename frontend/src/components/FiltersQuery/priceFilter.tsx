@@ -4,7 +4,10 @@ import { Slider } from 'antd'
 function PriceFilter() {
 	return (
 		<>
-			<Slider />
+			<span>Filtro por valor</span>
+			<br />
+			<span>Ate: R$ 300,00</span>
+			<Slider min={10} max={500} step={10} />
 		</>
 	)
 }
