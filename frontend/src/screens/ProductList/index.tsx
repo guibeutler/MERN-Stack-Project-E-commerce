@@ -18,19 +18,36 @@ function ProductList() {
 	return (
 		<div>
 			<Row>
-				<Col md={3}>
+				<Col
+					md={3}
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+					}}
+				>
 					<List
-						bordered
+						size="large"
 						dataSource={data}
 						renderItem={(item) => <List.Item> {item}</List.Item>}
 					/>
 					<Button> Filtrar</Button>
 					<Button> Limpar</Button>
 				</Col>
-				<Col>
-					<ProductForList />
-					<PaginationComponent />
-				</Col>
+				<Row>
+					<Col
+						style={{
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'center',
+						}}
+					>
+						{Array.from({ length: 5 }).map((_, idx) => (
+							<ProductForList />
+						))}
+
+						<PaginationComponent />
+					</Col>
+				</Row>
 			</Row>
 		</div>
 	)
