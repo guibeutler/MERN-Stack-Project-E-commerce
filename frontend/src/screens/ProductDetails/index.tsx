@@ -29,8 +29,9 @@ function ProductDetails() {
 		console.log('changed', value)
 	}
 	const data = [
-		'Product status',
-
+		'Status: em estoque',
+		'Preco: R$ 55,00',
+		'Quantidade: ',
 		<InputNumber
 			defaultValue={1}
 			min={1}
@@ -38,14 +39,18 @@ function ProductDetails() {
 			step={1}
 			onChange={onChange}
 		/>,
-		<Button>Add to cart</Button>,
+		<Button type="default">Add to cart</Button>,
 	]
 
 	return (
 		<Layout style={{ backgroundColor: '#fff' }}>
 			<AlertAddToCart />
 			<Row>
-				<Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+				<Col
+					style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
+					xs={{ span: 5, offset: 1 }}
+					lg={{ span: 6, offset: 2 }}
+				>
 					<Image width={300} src={img1} />
 					<Image width={300} src={img2} />
 					<Image width={300} src={img3} />
@@ -54,9 +59,11 @@ function ProductDetails() {
 					<Row>
 						<Col md={8}>
 							<List
-								size="default"
+								style={{ width: '25vw' }}
+								bordered
+								size="large"
 								dataSource={product}
-								renderItem={(item) => <List.Item> {item}</List.Item>}
+								renderItem={(item) => <List.Item>{item}</List.Item>}
 							/>
 						</Col>
 					</Row>
@@ -79,13 +86,15 @@ function ProductDetails() {
 							<TextArea />
 						</Form.Item>
 						<Form.Item>
-							<Button>Button</Button>
+							<Button>Enviar</Button>
 						</Form.Item>
 					</Form>
 				</Col>
 				<Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
 					<List
-						size="default"
+						style={{ width: '180px' }}
+						bordered
+						size="small"
 						dataSource={data}
 						renderItem={(item) => <List.Item> {item}</List.Item>}
 					/>

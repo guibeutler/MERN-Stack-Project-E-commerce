@@ -21,7 +21,7 @@ function AlertAddToCart() {
 		>
 			{show && (
 				<Alert
-					style={{ width: '50%' }}
+					style={{ width: '60%', height: '10vh' }}
 					message="Item adicionado ao carrinho!"
 					type="success"
 					showIcon
