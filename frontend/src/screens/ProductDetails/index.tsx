@@ -10,6 +10,7 @@ import {
 	Input,
 	Button,
 	InputNumber,
+	Select,
 } from 'antd'
 import { Rating } from 'react-simple-star-rating'
 import AlertAddToCart from '@components/Alerts/addedToCart'
@@ -17,6 +18,17 @@ import img1 from '@assets/imgCarousel/img1.png'
 import img2 from '@assets/imgCarousel/img2.jpg'
 import img3 from '@assets/imgCarousel/img3.jpeg'
 import TextArea from 'antd/es/input/TextArea'
+
+const currentDate = new Date()
+const date = currentDate.toLocaleDateString('pt-BR', {
+	day: '2-digit',
+	month: '2-digit',
+	year: 'numeric',
+})
+
+const handleChange = (value: string) => {
+	console.log(`selected ${value}`)
+}
 
 function ProductDetails() {
 	const product = [
@@ -55,7 +67,7 @@ function ProductDetails() {
 					<Image width={300} src={img2} />
 					<Image width={300} src={img3} />
 				</Col>
-				<Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+				<Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
 					<Row>
 						<Col md={8}>
 							<List
@@ -70,20 +82,54 @@ function ProductDetails() {
 					<Row>
 						<Col>
 							<h5>REVIEWS</h5>
+							<List>
+								{Array.from({ length: 4 }).map((item, idx) => {
+									return (
+										<List
+											key={idx}
+											bordered
+											style={{ margin: '5px', width: '25vw' }}
+										>
+											<List.Item>Jonh Doe</List.Item>
+											<List.Item>
+												<Rating size={20} readonly initialValue={5} />
+											</List.Item>
+											<List.Item>{date}</List.Item>
+											<List.Item>
+												<p>
+													Lorem ipsum dolor sit amet, consectetur adipiscing
+													elit. Maecenas vel metus vel massa vehicula malesuada.
+													Vestibulum ante ipsum primis in.
+												</p>
+											</List.Item>
+										</List>
+									)
+								})}
+							</List>
 						</Col>
 					</Row>
-					<hr />
-					send review form
+					<h5>Quer deixar sua avaliacao?</h5>
 					<Alert
 						message="Faca Login antes de enviar uma mensagem"
 						type="error"
 					/>
 					<Form layout="vertical">
-						<Form.Item label="E-mail">
-							<Input />
-						</Form.Item>
 						<Form.Item label="Text Area">
 							<TextArea />
+						</Form.Item>
+						<Form.Item label="Classificacao">
+							<Select
+								defaultValue="5 (muito bom)"
+								style={{ width: 150 }}
+								onChange={handleChange}
+								options={[
+									{ value: '5', label: '5 (muito bom)' },
+									{ value: '4', label: '4 (bom)' },
+									{ value: '3', label: '3 (normal)' },
+									{ value: '2', label: '2 (ruim)' },
+									{ value: '1', label: '1 (muito ruim)' },
+								]}
+							/>
 						</Form.Item>
 						<Form.Item>
 							<Button>Enviar</Button>
