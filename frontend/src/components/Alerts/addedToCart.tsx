@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
-import { Alert, Button, Space } from 'antd'
+import { Alert, Button } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import { ArrowLeftOutlined, ShoppingCartOutlined } from '@ant-design/icons'
+import './style.css'
 
 function AlertAddToCart() {
 	const [show, setShow] = useState(true)
+	const navigate = useNavigate()
 	const handleClose = () => {
 		setShow(false)
-	}
-
-	const handleGoToCart = () => {
-		// adicione aqui a lógica para ir para o carrinho
-	}
-
-	const handleGoBack = () => {
-		// adicione aqui a lógica para voltar para a lista
 	}
 
 	return (
@@ -26,14 +22,19 @@ function AlertAddToCart() {
 			{show && (
 				<Alert
 					style={{ width: '50%' }}
-					message="Item adicionado ao carrinho com sucesso"
+					message="Item adicionado ao carrinho!"
 					type="success"
 					showIcon
 					closable
 					onClose={handleClose}
 					action={[
-						<Button onClick={handleGoToCart}>Ir para o carrinho</Button>,
-						<Button onClick={handleGoBack}>Voltar para a lista</Button>,
+						<Button onClick={() => navigate('/product-list')}>
+							<ArrowLeftOutlined />
+						</Button>,
+
+						<Button onClick={() => navigate('/cart')}>
+							<ShoppingCartOutlined />
+						</Button>,
 					]}
 				/>
 			)}

@@ -9,7 +9,6 @@ import {
 	Form,
 	Input,
 	Button,
-	Select,
 	InputNumber,
 } from 'antd'
 import { Rating } from 'react-simple-star-rating'
