@@ -18,7 +18,7 @@ function CartItemComponent() {
 			}}
 		>
 			<Col>
-				<img width={150} src={img1} />
+				<img width={150} src={img1} alt="" />
 			</Col>
 			<Col>
 				<p>
