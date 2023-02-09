@@ -1,6 +1,7 @@
 import React from 'react'
 import { Alert, Button, Col, List, Row } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import CartItemComponent from '@components/CartItemComponent'
 
 function Cart() {
 	const navigate = useNavigate()
@@ -20,9 +21,9 @@ function Cart() {
 		>
 			<Col md={8}>
 				<h1>Carrinho</h1>
-				{Array.from({ length: 3 }).map((item) => (
+				{Array.from({ length: 3 }).map((item, idx) => (
 					<>
-						CartItemComponent <br />
+						<CartItemComponent key={idx} />
 					</>
 				))}
 				<Alert message="Carrinho Vazio :(" type="warning" />
