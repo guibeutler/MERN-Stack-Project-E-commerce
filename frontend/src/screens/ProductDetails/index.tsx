@@ -7,11 +7,11 @@ import {
 	List,
 	Alert,
 	Form,
-	Input,
 	Button,
 	InputNumber,
 	Select,
 } from 'antd'
+import moment from 'moment'
 import { Rating } from 'react-simple-star-rating'
 import AlertAddToCart from '@components/Alerts/addedToCart'
 import img1 from '@assets/imgCarousel/img1.png'
@@ -19,12 +19,7 @@ import img2 from '@assets/imgCarousel/img2.jpg'
 import img3 from '@assets/imgCarousel/img3.jpeg'
 import TextArea from 'antd/es/input/TextArea'
 
-const currentDate = new Date()
-const date = currentDate.toLocaleDateString('pt-BR', {
-	day: '2-digit',
-	month: '2-digit',
-	year: 'numeric',
-})
+const currentDateTime = moment().local().format('DD/MM/YYYY')
 
 const handleChange = (value: string) => {
 	console.log(`selected ${value}`)
@@ -94,7 +89,7 @@ function ProductDetails() {
 											<List.Item>
 												<Rating size={20} readonly initialValue={5} />
 											</List.Item>
-											<List.Item>{date}</List.Item>
+											<List.Item>{currentDateTime}</List.Item>
 											<List.Item>
 												<p>
 													Lorem ipsum dolor sit amet, consectetur adipiscing
