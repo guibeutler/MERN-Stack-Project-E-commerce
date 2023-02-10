@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
-import { Button, Checkbox, Col, Form, Input, Row } from 'antd'
+import { Alert, Button, Checkbox, Col, Form, Input, Row } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { LoginOutlined } from '@ant-design/icons'
 
 const onFinish = (values: any) => {
 	console.log('Success:', values)
@@ -39,7 +40,7 @@ function Login() {
 			}}
 		>
 			<Col style={{ width: '350px' }}>
-				<h1>Login</h1>
+				<h1>Fazer Login</h1>
 				<Form
 					layout="vertical"
 					name="basic"
@@ -65,7 +66,7 @@ function Login() {
 					</Form.Item>
 
 					<Form.Item name="remember" valuePropName="checked">
-						<Checkbox>Remember me</Checkbox>
+						<Checkbox>Lembrar-me</Checkbox>
 					</Form.Item>
 
 					<Form.Item>
@@ -85,14 +86,19 @@ function Login() {
 								loading={loadings[1]}
 								onClick={() => enterLoading(1)}
 							>
-								Login
+								<LoginOutlined />
+								Entrar
 							</Button>
 						)}
 						<br />
-						Não possui conta?{' '}
-						<a onClick={() => navigate('/register')}>Cadastrar!</a>
+						Novo aqui? <a onClick={() => navigate('/register')}>CADASTRE-SE</a>
 					</Form.Item>
 				</Form>
+				<Alert
+					style={{ textAlign: 'center' }}
+					message="E-mail ou senha inválidos!"
+					type="error"
+				/>
 			</Col>
 		</Row>
 	)
