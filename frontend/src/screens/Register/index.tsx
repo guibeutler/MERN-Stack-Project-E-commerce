@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Col, Form, Input, Row } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
@@ -12,9 +12,27 @@ const onFinishFailed = (errorInfo: any) => {
 }
 
 function Register() {
+	const [loadings, setLoadings] = useState<boolean[]>([])
 	const navigate = useNavigate()
+
+	const enterLoading = (index: number) => {
+		setLoadings((prevLoadings) => {
+			const newLoadings = [...prevLoadings]
+			newLoadings[index] = true
+			return newLoadings
+		})
+
+		setTimeout(() => {
+			setLoadings((prevLoadings) => {
+				const newLoadings = [...prevLoadings]
+				newLoadings[index] = false
+				return newLoadings
+			})
+		}, 6000)
+	}
+
 	return (
-		<Row style={{ display: 'flex', justifyContent: 'center', margin: '50px' }}>
+		<Row style={{ display: 'flex', justifyContent: 'center', margin: '20px' }}>
 			<Col style={{ width: '350px' }}>
 				<h1>Cadastro</h1>
 				<Form
@@ -56,7 +74,9 @@ function Register() {
 						hasFeedback
 						label="Senha"
 						name="password"
-						rules={[{ required: true, message: 'Please input your password!' }]}
+						rules={[
+							{ required: true, message: 'Por favor, insira sua senha!' },
+						]}
 					>
 						<Input.Password />
 					</Form.Item>
@@ -66,7 +86,7 @@ function Register() {
 						name="confirm"
 						dependencies={['password']}
 						rules={[
-							{ required: true, message: 'Please input your password!' },
+							{ required: true, message: 'Por favor, insira sua senha!' },
 							({ getFieldValue }) => ({
 								validator(_, value) {
 									if (!value || getFieldValue('password') === value) {
@@ -80,11 +100,27 @@ function Register() {
 						<Input.Password />
 					</Form.Item>
 					<Form.Item>
-						<Button type="primary" htmlType="submit">
-							Submit
-						</Button>{' '}
+						{loadings[1] ? (
+							<Button
+								type="primary"
+								htmlType="submit"
+								loading={loadings[1]}
+								onClick={() => enterLoading(1)}
+							>
+								Enviando
+							</Button>
+						) : (
+							<Button
+								type="primary"
+								htmlType="submit"
+								loading={loadings[1]}
+								onClick={() => enterLoading(1)}
+							>
+								Enviar
+							</Button>
+						)}
 						<br />
-						Ou faça <a onClick={() => navigate('/login')}>Login!</a>
+						Já possui conta? <a onClick={() => navigate('/login')}>Login!</a>
 					</Form.Item>
 				</Form>
 			</Col>
