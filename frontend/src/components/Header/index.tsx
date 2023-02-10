@@ -48,7 +48,7 @@ const Header = () => {
 								</Badge>
 							</Col>
 							<Col>
-								<Text>login</Text>
+								<Text onClick={() => navigate('/login')}>login</Text>
 							</Col>
 							<Col>
 								<Text onClick={() => navigate('/user/my-orders')}>

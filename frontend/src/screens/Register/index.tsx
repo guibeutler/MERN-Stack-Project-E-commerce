@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
-import { Button, Col, Form, Input, Row } from 'antd'
+import { Alert, Button, Col, Form, Input, Row } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
 const onFinish = (values: any) => {
@@ -38,9 +38,6 @@ function Register() {
 				<Form
 					layout="vertical"
 					name="basic"
-					labelCol={{ span: 8 }}
-					wrapperCol={{ span: 16 }}
-					style={{ maxWidth: 600 }}
 					onFinish={onFinish}
 					onFinishFailed={onFinishFailed}
 					autoComplete="off"
@@ -123,6 +120,7 @@ function Register() {
 						Já possui conta? <a onClick={() => navigate('/login')}>Login!</a>
 					</Form.Item>
 				</Form>
+				<Alert message="O e-mail já está cadastrado!" type="error" />
 			</Col>
 		</Row>
 	)
