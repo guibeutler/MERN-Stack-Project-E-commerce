@@ -2,7 +2,8 @@
 import React, { useState } from 'react'
 import { Alert, Button, Checkbox, Col, Form, Input, Row } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import { LoginOutlined } from '@ant-design/icons'
+import { LoginOutlined, MailOutlined, LockOutlined } from '@ant-design/icons'
+import './style.css'
 
 const onFinish = (values: any) => {
 	console.log('Success:', values)
@@ -39,59 +40,55 @@ function Login() {
 				margin: '20px',
 			}}
 		>
-			<Col style={{ width: '350px' }}>
+			<Col>
 				<h1>Fazer Login</h1>
+
 				<Form
-					layout="vertical"
-					name="basic"
+					name="normal_login"
+					className="login-form"
 					initialValues={{ remember: true }}
 					onFinish={onFinish}
-					onFinishFailed={onFinishFailed}
-					autoComplete="off"
 				>
 					<Form.Item
-						label="E-mail"
-						name="email"
-						rules={[{ required: true, message: 'Please input your username!' }]}
+						name="username"
+						rules={[{ required: true, message: 'Please input your Username!' }]}
 					>
-						<Input />
+						<Input
+							prefix={<MailOutlined className="site-form-item-icon" />}
+							placeholder="Username"
+						/>
 					</Form.Item>
-
 					<Form.Item
-						label="Senha"
 						name="password"
-						rules={[{ required: true, message: 'Please input your password!' }]}
+						rules={[{ required: true, message: 'Please input your Password!' }]}
 					>
-						<Input.Password />
+						<Input
+							prefix={<LockOutlined className="site-form-item-icon" />}
+							type="password"
+							placeholder="Password"
+						/>
 					</Form.Item>
-
-					<Form.Item name="remember" valuePropName="checked">
-						<Checkbox>Lembrar-me</Checkbox>
-					</Form.Item>
-
 					<Form.Item>
-						{loadings[1] ? (
-							<Button
-								type="primary"
-								htmlType="submit"
-								loading={loadings[1]}
-								onClick={() => enterLoading(1)}
-							>
-								Entrando
-							</Button>
-						) : (
-							<Button
-								type="primary"
-								htmlType="submit"
-								loading={loadings[1]}
-								onClick={() => enterLoading(1)}
-							>
-								<LoginOutlined />
-								Entrar
-							</Button>
-						)}
+						<Form.Item name="remember" valuePropName="checked" noStyle>
+							<Checkbox>Lembrar-me</Checkbox>
+						</Form.Item>
+
+						<a className="login-form-forgot" href="">
+							Esqueceu a senha?
+						</a>
+					</Form.Item>
+					<Form.Item>
+						<Button
+							type="primary"
+							htmlType="submit"
+							className="login-form-button"
+							loading={loadings[1]}
+							onClick={() => enterLoading(1)}
+						>
+							Login
+						</Button>{' '}
 						<br />
-						Novo aqui? <a onClick={() => navigate('/register')}>CADASTRE-SE</a>
+						Novo aqui? <a href="">Cadastre-se!</a>
 					</Form.Item>
 				</Form>
 				<Alert
