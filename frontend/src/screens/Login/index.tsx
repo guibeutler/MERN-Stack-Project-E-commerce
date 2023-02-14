@@ -2,15 +2,11 @@
 import React, { useState } from 'react'
 import { Alert, Button, Checkbox, Col, Form, Input, Row } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import { LoginOutlined, MailOutlined, LockOutlined } from '@ant-design/icons'
+import { MailOutlined, LockOutlined } from '@ant-design/icons'
 import './style.css'
 
 const onFinish = (values: any) => {
 	console.log('Success:', values)
-}
-
-const onFinishFailed = (errorInfo: any) => {
-	console.log('Failed:', errorInfo)
 }
 
 function Login() {
@@ -88,7 +84,7 @@ function Login() {
 							Login
 						</Button>{' '}
 						<br />
-						Novo aqui? <a href="">Cadastre-se!</a>
+						Novo aqui? <a onClick={() => navigate('/register')}>Cadastre-se!</a>
 					</Form.Item>
 				</Form>
 				<Alert

@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
-import { Alert, Button, Col, Form, Input, Row } from 'antd'
+import { Alert, Button, Col, Form, Input, InputNumber, Row, Select } from 'antd'
 import { useNavigate } from 'react-router-dom'
+
+const { Option } = Select
 
 const onFinish = (values: any) => {
 	console.log('Success:', values)
@@ -13,7 +15,14 @@ const onFinishFailed = (errorInfo: any) => {
 
 function UserProfile() {
 	const [loadings, setLoadings] = useState<boolean[]>([])
+	const [prefix, setPrefix] = useState('+55')
+	const [phone, setPhone] = useState('')
+	console.log('state:', phone)
 	const navigate = useNavigate()
+
+	const handlePrefixChange = (value: string) => {
+		setPrefix(value)
+	}
 
 	const enterLoading = (index: number) => {
 		setLoadings((prevLoadings) => {
@@ -29,6 +38,24 @@ function UserProfile() {
 				return newLoadings
 			})
 		}, 6000)
+	}
+
+	const maskPhone = (value) => {
+		const phoneNumber = value.replace(/\D/g, '')
+		return phoneNumber.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
+	}
+
+	const telefone = '54999864556'
+
+	console.log('teste:', maskPhone(telefone))
+
+	const handlePhoneNumberChange = (phoneNumber) => {
+		const formattedPhone = maskPhone(phoneNumber.toString())
+		setPhone(formattedPhone)
+	}
+
+	const handlePhoneChange = (value) => {
+		handlePhoneNumberChange(value)
 	}
 
 	return (
@@ -52,6 +79,23 @@ function UserProfile() {
 						<Input
 							disabled
 							placeholder="Para alterar, precisa excluir a conta e criar uma nova."
+						/>
+					</Form.Item>
+					<Form.Item label="Telefone" name="phone">
+						<InputNumber
+							style={{ width: '350px' }}
+							addonBefore={
+								<Select value={prefix} onChange={handlePrefixChange}>
+									<Option value="+55">+55</Option>
+									<Option value="+1">+1</Option>
+									<Option value="+86">+86</Option>
+								</Select>
+							}
+							formatter={maskPhone}
+							value={phone}
+							onChange={handlePhoneChange}
+							placeholder="apenas números"
+							maxLength={15}
 						/>
 					</Form.Item>
 					<Form.Item
