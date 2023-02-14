@@ -17,7 +17,6 @@ function UserProfile() {
 	const [loadings, setLoadings] = useState<boolean[]>([])
 	const [prefix, setPrefix] = useState('+55')
 	const [phone, setPhone] = useState('')
-	console.log('state:', phone)
 	const navigate = useNavigate()
 
 	const handlePrefixChange = (value: string) => {
@@ -44,10 +43,6 @@ function UserProfile() {
 		const phoneNumber = value.replace(/\D/g, '')
 		return phoneNumber.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
 	}
-
-	const telefone = '54999864556'
-
-	console.log('teste:', maskPhone(telefone))
 
 	const handlePhoneNumberChange = (phoneNumber) => {
 		const formattedPhone = maskPhone(phoneNumber.toString())
@@ -98,13 +93,23 @@ function UserProfile() {
 							maxLength={15}
 						/>
 					</Form.Item>
+					<Form.Item label="CEP" name="zipcode">
+						<Input placeholder="_____-___" />
+					</Form.Item>
+					<Form.Item label="Endereço" name="address">
+						<Input placeholder="Sua rua e número" />
+					</Form.Item>
+					<Form.Item label="Cidade" name="city">
+						<Input placeholder="Sua cidade" />
+					</Form.Item>
+					<Form.Item label="País" name="country">
+						<Input placeholder="Seu país" />
+					</Form.Item>
 					<Form.Item
 						hasFeedback
 						label="Senha"
 						name="password"
-						rules={[
-							{ required: true, message: 'Por favor, insira sua senha!' },
-						]}
+						rules={[{ message: 'Por favor, insira sua senha!' }]}
 					>
 						<Input.Password />
 					</Form.Item>
@@ -114,7 +119,7 @@ function UserProfile() {
 						name="confirm"
 						dependencies={['password']}
 						rules={[
-							{ required: true, message: 'Por favor, insira sua senha!' },
+							{ message: 'Por favor, insira sua senha!' },
 							({ getFieldValue }) => ({
 								validator(_, value) {
 									if (!value || getFieldValue('password') === value) {
@@ -135,7 +140,7 @@ function UserProfile() {
 								loading={loadings[1]}
 								onClick={() => enterLoading(1)}
 							>
-								Enviando
+								Salvando
 							</Button>
 						) : (
 							<Button
@@ -144,14 +149,11 @@ function UserProfile() {
 								loading={loadings[1]}
 								onClick={() => enterLoading(1)}
 							>
-								Enviar
+								Salvar
 							</Button>
 						)}
-						<br />
-						Já possui conta? <a onClick={() => navigate('/login')}>Login!</a>
 					</Form.Item>
 				</Form>
-				<Alert message="O e-mail já está cadastrado!" type="error" />
 			</Col>
 		</Row>
 	)
