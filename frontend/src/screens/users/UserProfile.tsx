@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
-import { Alert, Button, Col, Form, Input, InputNumber, Row, Select } from 'antd'
+import { Button, Col, Form, Input, InputNumber, Row, Select } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
 const { Option } = Select
@@ -64,19 +64,19 @@ function UserProfile() {
 					onFinishFailed={onFinishFailed}
 					autoComplete="off"
 				>
-					<Form.Item label="Nome" name="username">
+					<Form.Item hasFeedback label="Nome" name="username">
 						<Input />
 					</Form.Item>
-					<Form.Item label="Sobrenome" name="lastname">
+					<Form.Item hasFeedback label="Sobrenome" name="lastname">
 						<Input />
 					</Form.Item>
-					<Form.Item label="E-mail" name="email">
+					<Form.Item hasFeedback label="E-mail" name="email">
 						<Input
 							disabled
 							placeholder="Para alterar, precisa excluir a conta e criar uma nova."
 						/>
 					</Form.Item>
-					<Form.Item label="Telefone" name="phone">
+					<Form.Item hasFeedback label="Telefone" name="phone">
 						<InputNumber
 							style={{ width: '350px' }}
 							addonBefore={
@@ -93,16 +93,16 @@ function UserProfile() {
 							maxLength={15}
 						/>
 					</Form.Item>
-					<Form.Item label="CEP" name="zipcode">
+					<Form.Item hasFeedback label="CEP" name="zipcode">
 						<Input placeholder="_____-___" />
 					</Form.Item>
-					<Form.Item label="Endereço" name="address">
+					<Form.Item hasFeedback label="Endereço" name="address">
 						<Input placeholder="Sua rua e número" />
 					</Form.Item>
-					<Form.Item label="Cidade" name="city">
+					<Form.Item hasFeedback label="Cidade" name="city">
 						<Input placeholder="Sua cidade" />
 					</Form.Item>
-					<Form.Item label="País" name="country">
+					<Form.Item hasFeedback label="País" name="country">
 						<Input placeholder="Seu país" />
 					</Form.Item>
 					<Form.Item
