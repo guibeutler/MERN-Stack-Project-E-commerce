@@ -1,7 +1,7 @@
 import React from 'react'
-import { Col, Row } from 'antd'
-import Carousel from '../../components/Carousel'
-import CategoryCard from '../../components/CategoryCard'
+import { Row } from 'antd'
+import Carousel from '@components/Carousel'
+import CategoryCard from '@components/CategoryCard'
 
 function Home() {
 	const categories = ['Geleias', 'Kits de Geleia', 'Novidades']

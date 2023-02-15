@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, List, Row, InputNumber } from 'antd'
+import { Button, Col, Row, InputNumber } from 'antd'
 import img1 from '@assets/imgCarousel/img1.png'
 import { DeleteOutlined } from '@ant-design/icons'
 
@@ -8,15 +8,7 @@ function CartItemComponent() {
 		console.log('changed', value)
 	}
 	return (
-		<Row
-			gutter={[10, 32]}
-			style={{
-				alignItems: 'flex-start',
-				textAlign: 'start',
-				margin: '10px',
-				gap: '8px',
-			}}
-		>
+		<Row gutter={[10, 32]}>
 			<Col>
 				<img width={150} src={img1} alt="" />
 			</Col>
@@ -40,7 +32,7 @@ function CartItemComponent() {
 				/>
 			</Col>
 			<Col>
-				<Button>
+				<Button style={{ width: '50px' }}>
 					<DeleteOutlined />
 				</Button>
 			</Col>

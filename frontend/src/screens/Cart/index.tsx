@@ -8,7 +8,13 @@ function Cart() {
 	const data = [
 		'Subtotal (2 itens)',
 		'Preco: R$ 55,00',
-		<Button onClick={() => navigate('/user/order-details')}>Checkout</Button>,
+		<Button
+			type="primary"
+			style={{ width: '100px' }}
+			onClick={() => navigate('/user/cart-details')}
+		>
+			Checkout
+		</Button>,
 	]
 
 	return (
@@ -19,21 +25,19 @@ function Cart() {
 				alignItems: 'center',
 			}}
 		>
-			<Col md={8}>
+			<Col>
 				<h1>Carrinho</h1>
 				{Array.from({ length: 3 }).map((item, idx) => (
-					<>
-						<CartItemComponent key={idx} />
-					</>
+					<CartItemComponent key={idx} />
 				))}
 				<Alert message="Carrinho Vazio :(" type="warning" />
 			</Col>
-			<Col md={4}>
+			<Col>
 				<List
 					bordered
 					size="small"
 					dataSource={data}
-					renderItem={(item) => <List.Item> {item}</List.Item>}
+					renderItem={(item) => <List.Item>{item}</List.Item>}
 				/>
 			</Col>
 		</Row>

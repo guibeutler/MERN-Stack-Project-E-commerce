@@ -65,6 +65,7 @@ const Header = () => {
 										style={{
 											fontSize: '18px',
 										}}
+										onClick={() => navigate('/cart')}
 									/>
 								</Badge>
 							</Col>
