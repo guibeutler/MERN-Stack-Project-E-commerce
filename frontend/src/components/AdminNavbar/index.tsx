@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { Col, List } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -11,25 +11,41 @@ import {
 	UserOutlined,
 } from '@ant-design/icons'
 
+type MenuItem = {
+	url: string
+	icon: React.ReactNode
+	label: string
+}
+
 function AdminNavbar() {
 	const navigate = useNavigate()
 
-	const getMenuItem = (url: string, icon: ReactNode) => (
-		<a
-			onClick={() => navigate(url)}
-			style={window.location.href.includes(url) ? { fontWeight: 'bold' } : {}}
-		>
-			{icon} {url.split('/').pop()}
-		</a>
-	)
+	const getMenuItem = ({ url, icon, label }: MenuItem) => {
+		const iconWithLabel = React.cloneElement(icon as React.ReactElement, {
+			'aria-label': label,
+		})
 
-	const menuList = [
-		getMenuItem('/admin/orders', <UnorderedListOutlined />),
-		getMenuItem('/admin/products', <InboxOutlined />),
-		getMenuItem('/admin/users', <UserOutlined />),
-		getMenuItem('/admin/chats', <MessageOutlined />),
-		getMenuItem('/admin/analytics', <LineChartOutlined />),
-		getMenuItem('/logout', <ArrowLeftOutlined />),
+		return (
+			<a
+				onClick={() => navigate(url)}
+				style={window.location.href.includes(url) ? { fontWeight: 'bold' } : {}}
+			>
+				{iconWithLabel} {label}
+			</a>
+		)
+	}
+
+	const menuList: MenuItem[] = [
+		{ url: '/admin/orders', icon: <UnorderedListOutlined />, label: 'Pedidos' },
+		{ url: '/admin/products', icon: <InboxOutlined />, label: 'Produtos' },
+		{ url: '/admin/users', icon: <UserOutlined />, label: 'Usuários' },
+		{ url: '/admin/chats', icon: <MessageOutlined />, label: 'Mensagens' },
+		{
+			url: '/admin/analytics',
+			icon: <LineChartOutlined />,
+			label: 'Estatísticas',
+		},
+		{ url: '/logout', icon: <ArrowLeftOutlined />, label: 'Sair' },
 	]
 
 	return (
@@ -38,7 +54,9 @@ function AdminNavbar() {
 				size="small"
 				bordered
 				dataSource={menuList}
-				renderItem={(item) => <List.Item>{item}</List.Item>}
+				renderItem={({ url, icon, label }: MenuItem) => (
+					<List.Item>{getMenuItem({ url, icon, label })}</List.Item>
+				)}
 			/>
 		</Col>
 	)
