@@ -1,17 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { Col, List, Row, Table, Tag } from 'antd'
+import { Col, Row, Table, Tag } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import {
-	ArrowLeftOutlined,
-	InboxOutlined,
-	LineChartOutlined,
-	MessageOutlined,
-	UnorderedListOutlined,
-	UserOutlined,
-} from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import moment from 'moment'
+import AdminNavbar from '@components/AdminNavbar'
 
 interface DataType {
 	key: string
@@ -139,27 +132,6 @@ function AdminOrders() {
 		},
 	]
 
-	const menuList = [
-		<a onClick={() => navigate('/admin/orders')}>
-			<UnorderedListOutlined /> Pedidos
-		</a>,
-		<a onClick={() => navigate('/admin/orders')}>
-			<InboxOutlined /> Produtos
-		</a>,
-		<a onClick={() => navigate('/admin/orders')}>
-			<UserOutlined /> Usuarios
-		</a>,
-		<a onClick={() => navigate('/admin/orders')}>
-			<MessageOutlined /> Chats
-		</a>,
-		<a onClick={() => navigate('/admin/orders')}>
-			<LineChartOutlined /> Analitics
-		</a>,
-		<a onClick={() => navigate('/admin/orders')}>
-			<ArrowLeftOutlined /> Logout
-		</a>,
-	]
-
 	return (
 		<Row
 			style={{
@@ -169,12 +141,7 @@ function AdminOrders() {
 			}}
 		>
 			<Col>
-				<List
-					size="small"
-					bordered
-					dataSource={menuList}
-					renderItem={(item) => <List.Item>{item}</List.Item>}
-				/>
+				<AdminNavbar />
 			</Col>
 			<Col>
 				<h1>Pedidos</h1>
