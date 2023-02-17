@@ -7,180 +7,24 @@ header {
 	border-bottom: 1px solid #e19563;
 	color: black;
 	font-family: 'Cinzel';
-	cursor: pointer;
+	/* z-index: 999px; */
 }
 
-header.scrolled {
+header.main-scrolled {
 	background-color: #e19563;
-	z-index: 2;
+	z-index: 1;
 	transition-duration: 0.3s;
-}
-
-header h2 {
-	font-family: 'Cinzel';
-}
-
-header .container {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 60%;
-	width: 90%;
-	margin: auto;
-}
-
-@keyframes menu {
-	0% {
-		left: 0px;
-		top: -100px;
-	}
-	100% {
-		left: 0px;
-		top: 0px;
-	}
-}
-
-@media (max-width: 630px) {
-	html {
-		font-size: 70%;
-	}
-	.hero .container {
-		flex-direction: column;
-		text-align: center;
-	}
-
-	.form-group {
-		display: block;
-	}
-}
-
-@media (max-width: 1120px) {
-	.menu-section .ant-row {
-		display: none;
-	}
-
-	.one,
-	.two,
-	.three {
-		background-color: black;
-		height: 2px;
-		width: 100%;
-		margin: 6px auto;
-		transition-duration: 0.3s;
-	}
-
-	.menu-toggle {
-		width: 30px;
-		height: 30px;
-		margin-right: 20px;
-	}
-
-	/*Fullscreen*/
-	.menu-section.on {
-		position: fixed;
-		top: 0;
-		right: 0;
-		width: 100%;
-		height: 100vh;
-		background: #e19563;
-		z-index: 10;
-		display: flex;
-		justify-content: center;
-	}
-
-	.menu-section.on .ant-typography {
-		color: white;
-		font-size: 18px;
-	}
-
-	.menu-section.on .ant-space {
-		display: flex;
-		flex-direction: column;
-		/* align-items: center; */
-		align-self: center;
-	}
-
-	.menu-section.on .style-menu {
-		display: flex;
-		justify-content: center;
-	}
-
-	.menu-section.on .menu-toggle {
-		position: absolute;
-		right: 25px;
-		top: 25px;
-	}
-
-	.menu-section.on .menu-toggle .one {
-		transform: rotate(45deg) translate(3px, 3px);
-		background-color: white;
-	}
-
-	.menu-section.on .menu-toggle .two {
-		opacity: 0;
-	}
-
-	.menu-section.on .menu-toggle .three {
-		transform: rotate(-45deg) translate(8px, -9px);
-		background-color: white;
-	}
-
-	.menu-section.on .style-menu .ant-col {
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.menu-section.on .icon {
-		color: white;
-		font-size: 50px;
-	}
-}
-
-@media (max-width: 320px) {
-	#form h3 {
-		font-size: 2rem;
-	}
 }
 
 .ant-typography {
 	text-transform: uppercase;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 800;
-	padding: 1rem;
 	transition: 100ms;
 	font-family: 'Cinzel';
 	cursor: pointer;
 }
 
 .ant-typography:hover {
-	font-size: 20px;
-}
-
-.style-menu .ant-col {
-	animation-name: menu;
-	animation-duration: 1s;
-	transition: 100ms;
-}
-
-.icon {
-	position: relative;
-	animation-name: menu;
-	animation-duration: 1s;
-	transition: 100ms;
-}
-
-.icon:hover {
-	transform: scale(1.5);
-}
-
-.badge {
-	position: relative;
-	animation-name: menu;
-	animation-duration: 1s;
-	transition: 100ms;
-}
-
-.badge:hover {
-	transform: scale(1.5);
+	font-size: 14px;
 }

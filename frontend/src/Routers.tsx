@@ -24,56 +24,62 @@ import UserOrderDetails from '@screens/users/UserOrderDetails'
 import UserOrders from '@screens/users/UserOrders'
 import UserProfile from '@screens/users/UserProfile'
 import ScrollToTop from '@components/ScrollToTop'
+import './routers.css'
 
 function Routers() {
 	return (
-		<BrowserRouter>
-			{/* <Navbar /> */}
-			<ScrollToTop />
-			<Header />
-			<Routes>
-				<Route element={<RoutesWithChat />}>
-					<Route path={'/'} element={<Home />} />
-					<Route path={'/cart'} element={<Cart />} />
-					<Route path={'/login'} element={<Login />} />
-					<Route path={'/product-details/:id'} element={<ProductDetails />} />
-					<Route path={'/product-list'} element={<ProductList />} />
-					<Route path={'/register'} element={<Register />} />
+		<div className="main-container">
+			<BrowserRouter>
+				{/* <Navbar /> */}
+				<ScrollToTop />
+				<Header />
+				<Routes>
+					<Route element={<RoutesWithChat />}>
+						<Route path={'/'} element={<Home />} />
+						<Route path={'/cart'} element={<Cart />} />
+						<Route path={'/login'} element={<Login />} />
+						<Route path={'/product-details/:id'} element={<ProductDetails />} />
+						<Route path={'/product-list'} element={<ProductList />} />
+						<Route path={'/register'} element={<Register />} />
 
-					<Route element={<ProtectedRoutes admin={false} />}>
-						<Route path={'/user/cart-details'} element={<UserCartDetails />} />
-						<Route
-							path={'/user/order-details'}
-							element={<UserOrderDetails />}
-						/>
-						<Route path={'/user/my-orders'} element={<UserOrders />} />
-						<Route path={'/user'} element={<UserProfile />} />
+						<Route element={<ProtectedRoutes admin={false} />}>
+							<Route
+								path={'/user/cart-details'}
+								element={<UserCartDetails />}
+							/>
+							<Route
+								path={'/user/order-details'}
+								element={<UserOrderDetails />}
+							/>
+							<Route path={'/user/my-orders'} element={<UserOrders />} />
+							<Route path={'/user'} element={<UserProfile />} />
+						</Route>
 					</Route>
-				</Route>
 
-				<Route element={<ProtectedRoutes admin={true} />}>
-					<Route path={'/admin/analytics'} element={<AdminAnalytics />} />
-					<Route path={'/admin/chats'} element={<AdminChats />} />
-					<Route
-						path={'/admin/create-products'}
-						element={<AdminCreateProducts />}
-					/>
-					<Route
-						path={'/admin/edit-products'}
-						element={<AdminEditProducts />}
-					/>
-					<Route path={'/admin/edit-user'} element={<AdminEditUser />} />
-					<Route
-						path={'/admin/order-details'}
-						element={<AdminOrderDetails />}
-					/>
-					<Route path={'/admin/orders'} element={<AdminOrders />} />
-					<Route path={'/admin/products'} element={<AdminProducts />} />
-					<Route path={'/admin/users'} element={<AdminUsers />} />
-				</Route>
-			</Routes>
-			<Footer />
-		</BrowserRouter>
+					<Route element={<ProtectedRoutes admin={true} />}>
+						<Route path={'/admin/analytics'} element={<AdminAnalytics />} />
+						<Route path={'/admin/chats'} element={<AdminChats />} />
+						<Route
+							path={'/admin/create-products'}
+							element={<AdminCreateProducts />}
+						/>
+						<Route
+							path={'/admin/edit-products'}
+							element={<AdminEditProducts />}
+						/>
+						<Route path={'/admin/edit-user'} element={<AdminEditUser />} />
+						<Route
+							path={'/admin/order-details'}
+							element={<AdminOrderDetails />}
+						/>
+						<Route path={'/admin/orders'} element={<AdminOrders />} />
+						<Route path={'/admin/products'} element={<AdminProducts />} />
+						<Route path={'/admin/users'} element={<AdminUsers />} />
+					</Route>
+				</Routes>
+				<Footer />
+			</BrowserRouter>
+		</div>
 	)
 }
 
