@@ -133,21 +133,28 @@ function AdminOrders() {
 	]
 
 	return (
-		<Row
-			style={{
-				display: 'flex',
-				justifyContent: 'space-around',
-				alignItems: 'center',
-			}}
-		>
-			<Col>
-				<AdminNavbar />
-			</Col>
-			<Col>
-				<h1>Pedidos</h1>
-				<Table columns={columns} dataSource={data} />
-			</Col>
-		</Row>
+		<div>
+			<Row
+				style={{
+					display: 'flex',
+					justifyContent: 'space-around',
+					alignItems: 'center',
+				}}
+			>
+				<Col>
+					<AdminNavbar />
+				</Col>
+				<Col>
+					<h1>Pedidos</h1>
+					<Table
+						columns={columns}
+						dataSource={data}
+						style={{ width: '80vw' }}
+						size="small"
+					/>
+				</Col>
+			</Row>
+		</div>
 	)
 }
 
