@@ -123,6 +123,7 @@ function AdminProducts() {
 					>
 						<h1>Produtos</h1>
 						<Button
+							onClick={() => navigate('/admin/create-products')}
 							style={{ width: '150px' }}
 							type="primary"
 							icon={<FileAddOutlined />}
