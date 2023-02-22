@@ -143,7 +143,7 @@ function AdminCreateProducts() {
 						)}
 					</Form.Item>
 				</Form>
-				<Alert message="O e-mail já está cadastrado!" type="error" />
+				{/* <Alert message="O e-mail já está cadastrado!" type="error" /> */}
 			</Col>
 		</Row>
 	)
