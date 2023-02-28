@@ -67,7 +67,7 @@ function AdminUsers() {
 				return (
 					<Space>
 						<Button
-							onClick={() => navigate('/admin/edit-products')}
+							onClick={() => navigate('/admin/edit-user')}
 							style={{ width: '50px' }}
 							type="primary"
 						>
