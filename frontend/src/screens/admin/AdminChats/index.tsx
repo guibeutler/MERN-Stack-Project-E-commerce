@@ -1,10 +1,12 @@
 import React from 'react'
+import { Row } from 'antd'
+import AdminChatRoom from '@components/AdminChatRoom'
 
 function AdminChats() {
 	return (
-		<div>
-			<p>ADMIN CHATS</p>
-		</div>
+		<Row>
+			<AdminChatRoom />
+		</Row>
 	)
 }
 
