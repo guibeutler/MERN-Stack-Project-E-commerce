@@ -10,15 +10,17 @@ import {
 	UnorderedListOutlined,
 	UserOutlined,
 } from '@ant-design/icons'
+import { useMediaQuery } from 'react-responsive'
 
 type MenuItem = {
 	url: string
 	icon: React.ReactNode
-	label: string
+	label?: string
 }
 
 function AdminNavbar() {
 	const navigate = useNavigate()
+	const isMobile = useMediaQuery({ maxWidth: 1120 })
 
 	const getMenuItem = ({ url, icon, label }: MenuItem) => {
 		const iconWithLabel = React.cloneElement(icon as React.ReactElement, {
@@ -48,16 +50,41 @@ function AdminNavbar() {
 		{ url: '/logout', icon: <ArrowLeftOutlined />, label: 'Sair' },
 	]
 
+	const menuListMobile: MenuItem[] = [
+		{ url: '/logout', icon: <ArrowLeftOutlined /> },
+		{ url: '/admin/orders', icon: <UnorderedListOutlined /> },
+		{ url: '/admin/products', icon: <InboxOutlined /> },
+		{ url: '/admin/users', icon: <UserOutlined /> },
+		{ url: '/admin/chats', icon: <MessageOutlined /> },
+		{
+			url: '/admin/analytics',
+			icon: <LineChartOutlined />,
+			label: 'Estatísticas',
+		},
+	]
+
 	return (
 		<Col>
-			<List
-				size="small"
-				bordered
-				dataSource={menuList}
-				renderItem={({ url, icon, label }: MenuItem) => (
-					<List.Item>{getMenuItem({ url, icon, label })}</List.Item>
-				)}
-			/>
+			{isMobile ? (
+				<List
+					grid={{ column: 6 }}
+					// size="small"
+					// bordered
+					dataSource={menuListMobile}
+					renderItem={({ url, icon, label }: MenuItem) => (
+						<List.Item>{getMenuItem({ url, icon })}</List.Item>
+					)}
+				/>
+			) : (
+				<List
+					size="small"
+					bordered
+					dataSource={menuList}
+					renderItem={({ url, icon, label }: MenuItem) => (
+						<List.Item>{getMenuItem({ url, icon, label })}</List.Item>
+					)}
+				/>
+			)}
 		</Col>
 	)
 }
