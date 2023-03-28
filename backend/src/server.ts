@@ -1,14 +1,19 @@
-import express from "express";
+import express from 'express'
 
-const server = express();
-const port = 3000;
+const app = express()
 
-server.get("/", (req, res) => {
-  res.send("Hello!");
-});
+const port = 3000
 
-server.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+const apiRoutes = require('./routes/apiRoutes')
 
-export default server;
+app.get('/', (req, res) => {
+	res.json({ message: 'API running...' })
+})
+
+app.use('/api', apiRoutes)
+
+app.listen(port, () => {
+	console.log(`Example app listening on port ${port}`)
+})
+
+export default app
