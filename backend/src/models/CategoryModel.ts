@@ -16,6 +16,8 @@ const categorySchema = new Schema({
 	image: { type: String, require: true },
 })
 
+categorySchema.index({ description: 1 })
+
 const Category = mongoose.model('Category', categorySchema)
 
-export default Category
+module.exports = Category
