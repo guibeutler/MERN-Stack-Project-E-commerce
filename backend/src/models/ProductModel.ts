@@ -1,5 +1,10 @@
 import mongoose from 'mongoose'
+import Review from './ReviewModel'
 const { Schema } = mongoose
+
+const imageSchema = new Schema({
+	path: { type: String, require: true },
+})
 
 const productSchema = new Schema(
 	{
@@ -34,10 +39,16 @@ const productSchema = new Schema(
 			type: Number,
 			default: 0,
 		},
+		reviews: [
+			{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: Review,
+			},
+		],
+		images: [imageSchema],
 	},
 	{ timestamps: true }
 )
 
 const Product = mongoose.model('Product', productSchema)
-
-module.exports = Product
+export default Product
