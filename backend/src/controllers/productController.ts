@@ -1,5 +1,7 @@
-const getProducts = (req: any, res: { send: (arg0: string) => void }) => {
+import { Request, Response } from 'express'
+
+const getProducts = (req: Request, res: Response) => {
 	res.send('GET PRODUCTS')
 }
 
-module.exports = getProducts
+export default getProducts

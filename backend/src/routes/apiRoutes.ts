@@ -1,9 +1,8 @@
-import express from 'express'
+import express, { Express } from 'express'
+import productRoutes from './productRoutes'
 
-const app = express()
-
-const productRoutes = require('./productRoutes')
+const app: Express = express()
 
 app.use('/products', productRoutes)
 
-module.exports = app
+export default app

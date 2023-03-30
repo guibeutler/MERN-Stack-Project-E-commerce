@@ -1,8 +1,10 @@
-import express from 'express'
+import { Router, Request, Response } from 'express'
+import getProducts from '../controllers/productController'
 
-const router = express.Router()
-const getProducts = require('../controllers/productController')
+const router: Router = Router()
 
-router.get('/', getProducts)
+router.get('/', (req: Request, res: Response) => {
+	getProducts(req, res)
+})
 
-module.exports = router
+export default router

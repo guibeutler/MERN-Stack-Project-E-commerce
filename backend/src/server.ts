@@ -1,19 +1,15 @@
-import express, { request } from 'express'
+import express, { Request, Response, NextFunction } from 'express'
+import { connectDB } from './config/db'
+import apiRoutes from './routes/apiRoutes'
 
 const app = express()
-
 const port = 3000
 
-const apiRoutes = require('./routes/apiRoutes')
+connectDB()
 
-app.get('/', async (req, res, next) => {
+app.get('/', async (req: Request, res: Response, next: Function) => {
 	res.json({ message: 'API running...' })
 })
-
-//MongoDB connection
-
-const connectDB = require('./config/db')
-connectDB()
 
 app.use('/api', apiRoutes)
 
