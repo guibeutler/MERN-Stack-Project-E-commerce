@@ -5,6 +5,8 @@ import apiRoutes from './routes/apiRoutes'
 const app = express()
 const port = 3000
 
+app.use(express.json())
+
 connectDB()
 
 app.get('/', async (req: Request, res: Response, next: Function) => {
