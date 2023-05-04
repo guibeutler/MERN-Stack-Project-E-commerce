@@ -1,1 +1,1 @@
-export const recordsPerPage = 2
+export const recordsPerPage = 5
