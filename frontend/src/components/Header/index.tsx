@@ -32,8 +32,8 @@ const Navbar = () => {
 				border: 'none',
 				textAlign: 'center',
 				width: isMobile ? '' : '580px',
-				backgroundColor: isMobile || scrolled ? '#e19563' : '',
-				transitionDuration: '0.3s',
+				// backgroundColor: isMobile || scrolled ? '#e19563' : '',
+				// transitionDuration: '0.3s',
 			}}
 		>
 			<Menu.Item key="user">

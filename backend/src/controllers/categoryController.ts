@@ -1,6 +1,5 @@
-import Category from '../models/CategoryModel'
-
 import { Request, Response } from 'express'
+import Category from '../models/CategoryModel'
 
 export const getCategories = async (req: Request, res: Response) => {
 	try {
@@ -28,6 +27,21 @@ export const newCategory = async (req: Request, res: Response) => {
 				name: category,
 			})
 			res.status(201).send({ categoryCreated: categoryCreated })
+		}
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const deleteCategory = async (req: Request, res: Response) => {
+	try {
+		if (req.params.category !== 'Escolha a categoria') {
+			const categoryExists = await Category.findOne({
+				name: decodeURIComponent(req.params.category),
+			}).orFail()
+
+			await categoryExists.deleteOne()
+			res.json({ categoryDeleted: true })
 		}
 	} catch (error) {
 		console.error(error)

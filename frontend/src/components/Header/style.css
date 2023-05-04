@@ -4,16 +4,17 @@ header {
 	position: sticky;
 	top: 0;
 	width: 100%;
-	border-bottom: 1px solid #e19563;
+	/* border-bottom: 1px solid #e19563; */
 	color: black;
 	font-family: 'Cinzel';
+	box-shadow: 0 3px 2px -2px gray;
 	/* z-index: 999px; */
 }
 
 header.main-scrolled {
-	background-color: #e19563;
+	background-color: white;
 	z-index: 1;
-	transition-duration: 0.3s;
+	/* transition-duration: 0.3s; */
 }
 
 .ant-typography {
