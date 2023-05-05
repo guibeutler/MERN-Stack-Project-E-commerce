@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { UpOutlined } from '@ant-design/icons'
 import './style.css'
+import { FloatButton } from 'antd'
 
 function ScrollToTop() {
 	const [showButton, setShowButton] = useState(false)
@@ -21,18 +22,19 @@ function ScrollToTop() {
 		}
 	}, [])
 
-	const handleClick = () => {
-		window.scrollTo({
-			top: 0,
-			left: 0,
-			behavior: 'smooth',
-		})
-	}
+	// const handleClick = () => {
+	// 	window.scrollTo({
+	// 		top: 0,
+	// 		left: 0,
+	// 		behavior: 'smooth',
+	// 	})
+	// }
 
 	return (
 		showButton && (
-			<button className="scroll-to-top-button" onClick={handleClick}>
-				<UpOutlined />
+			<button className="scroll-to-top-button">
+				{/* <UpOutlined /> */}
+				<FloatButton.BackTop />
 			</button>
 		)
 	)

@@ -4,13 +4,42 @@ import Product from '../models/ProductModel'
 
 const getProducts = async (req: Request, res: Response) => {
 	try {
+		let query = {}
+
+		let queryCondition = false
+
+		let priceQueryCondition = {}
+		if (req.query.price) {
+			queryCondition = true
+			priceQueryCondition = { price: { $lte: Number(req.query.price) } }
+		}
+
+		let ratingQueryCondition = {}
+		if (req.query.rating) {
+			queryCondition = true
+			ratingQueryCondition = {
+				rating: { $in: (req.query.rating as string).split(',') },
+			}
+		}
+
+		query = { $and: [priceQueryCondition, ratingQueryCondition] }
+
 		const pageNumber = Number(req.query.pageNumber) || 1
 
-		const totalProducts = await Product.countDocuments({})
+		let sort = {}
 
-		const products = await Product.find({})
+		const sortOption = req.query.sort || ''
+		if (sortOption) {
+			let sortOpt = (sortOption as string).split('_')
+			sort = { [sortOpt[0]]: Number(sortOpt[1]) }
+		}
+		console.log(sort)
+
+		const totalProducts = await Product.countDocuments(query)
+
+		const products = await Product.find(query)
 			.skip(recordsPerPage * (pageNumber - 1))
-			.sort({ name: 1 })
+			.sort(sort)
 			.limit(recordsPerPage)
 
 		res.json({

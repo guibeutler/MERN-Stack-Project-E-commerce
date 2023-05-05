@@ -58,3 +58,73 @@ function UserChat() {
 }
 
 export default UserChat
+
+// import React, { useState } from 'react'
+// import { Button, Tooltip, Modal, Form, Input } from 'antd'
+// import { MessageOutlined } from '@ant-design/icons'
+
+// const { TextArea } = Input
+
+// const UserChat: React.FC = () => {
+// 	const [visible, setVisible] = useState(false)
+// 	const [form] = Form.useForm()
+
+// 	const showModal = () => {
+// 		setVisible(true)
+// 	}
+
+// 	const handleCancel = () => {
+// 		setVisible(false)
+// 	}
+
+// 	const handleOk = () => {
+// 		form.submit()
+// 	}
+
+// 	const onFinish = (values: any) => {
+// 		console.log(values)
+// 		setVisible(false)
+// 	}
+
+// 	return (
+// 		<>
+// 			<Modal
+// 				title="Nova Mensagem"
+// 				visible={visible}
+// 				onOk={handleOk}
+// 				onCancel={handleCancel}
+// 			>
+// 				<Form form={form} onFinish={onFinish}>
+// 					<Form.Item
+// 						name="subject"
+// 						label="Assunto"
+// 						rules={[{ required: true, message: 'Por favor insira um assunto' }]}
+// 					>
+// 						<Input />
+// 					</Form.Item>
+// 					<Form.Item
+// 						name="message"
+// 						label="Mensagem"
+// 						rules={[
+// 							{ required: true, message: 'Por favor insira uma mensagem' },
+// 						]}
+// 					>
+// 						<TextArea rows={4} />
+// 					</Form.Item>
+// 				</Form>
+// 			</Modal>
+// 			<Tooltip title="Nova Mensagem">
+// 				<Button
+// 					type="primary"
+// 					shape="circle"
+// 					icon={<MessageOutlined />}
+// 					size="large"
+// 					onClick={showModal}
+// 					style={{ position: 'fixed', bottom: '50px', right: '50px' }}
+// 				/>
+// 			</Tooltip>
+// 		</>
+// 	)
+// }
+
+// export default UserChat
