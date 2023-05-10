@@ -22,7 +22,33 @@ const getProducts = async (req: Request, res: Response) => {
 			}
 		}
 
-		query = { $and: [priceQueryCondition, ratingQueryCondition] }
+		let categoryQueryCondition = {}
+		const categoryName = req.params.categoryName || ''
+		if (categoryName) {
+			queryCondition = true
+			let a = categoryName.replaceAll(',', '/')
+			var regEx = new RegExp('^' + a)
+			categoryQueryCondition = { category: regEx }
+		}
+		if (req.query.category) {
+			queryCondition = true
+			let a = (req.query.category as string).split(',').map((item) => {
+				if (item) return new RegExp('^' + item)
+			})
+			categoryQueryCondition = {
+				category: { $in: a },
+			}
+		}
+
+		if (queryCondition) {
+			query = {
+				$and: [
+					priceQueryCondition,
+					ratingQueryCondition,
+					categoryQueryCondition,
+				],
+			}
+		}
 
 		const pageNumber = Number(req.query.pageNumber) || 1
 
@@ -52,4 +78,11 @@ const getProducts = async (req: Request, res: Response) => {
 	}
 }
 
-export default getProducts
+const getProductsById = async (req: Request, res: Response) => {
+	try {
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+;(module.exports = getProducts), getProductsById

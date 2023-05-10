@@ -77,7 +77,7 @@ function Routers() {
 						<Route path={'/admin/users'} element={<AdminUsers />} />
 					</Route>
 				</Routes>
-				{/* <Footer /> */}
+				<Footer />
 			</BrowserRouter>
 		</div>
 	)

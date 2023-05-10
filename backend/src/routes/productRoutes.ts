@@ -7,4 +7,19 @@ router.get('/', (req: Request, res: Response) => {
 	getProducts(req, res)
 })
 
+router.get('/search/:searchQuery', (req: Request, res: Response) => {
+	getProducts(req, res)
+})
+
+router.get('/category/:categoryName', (req: Request, res: Response) => {
+	getProducts(req, res)
+})
+
+router.get(
+	'/category/:categoryName/search/:searchQuery',
+	(req: Request, res: Response) => {
+		getProducts(req, res)
+	}
+)
+
 export default router
