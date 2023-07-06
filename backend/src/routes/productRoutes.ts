@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import getProducts from '../controllers/productController'
+import { getProducts, getProductById } from '../controllers/productController'
 
 const router: Router = Router()
 
@@ -21,5 +21,6 @@ router.get(
 		getProducts(req, res)
 	}
 )
+router.get('/:id', getProductById)
 
 export default router

@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { recordsPerPage } from '../config/pagination'
 import Product from '../models/ProductModel'
 
-const getProducts = async (req: Request, res: Response) => {
+export const getProducts = async (req: Request, res: Response) => {
 	try {
 		let query = {}
 
@@ -78,11 +78,13 @@ const getProducts = async (req: Request, res: Response) => {
 	}
 }
 
-const getProductsById = async (req: Request, res: Response) => {
+export const getProductById = async (req: Request, res: Response) => {
 	try {
+		const product = await Product.findById(req.params.id)
+			.populate('reviews')
+			.orFail()
+		res.json(product)
 	} catch (error) {
 		console.error(error)
 	}
 }
-
-;(module.exports = getProducts), getProductsById
